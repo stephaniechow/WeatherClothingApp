@@ -28,47 +28,10 @@ public class Function {
 
     private static final String OPEN_WEATHER_MAP_API = "917f05b7dc93d294eea9aa5c16bf84eb";
 
-    public static String setWeatherIcon(int actualId, long sunrise, long sunset) {
-        int id = actualId / 100;
-        String icon = "";
-        if (actualId == 800) {
-            long currentTime = new Date().getTime();
-            if (currentTime >= sunrise && currentTime < sunset) {
-                icon = "&#xf00d;";
-            } else {
-                icon = "&#xf02e;";
-            }
-        } else {
-            switch (id) {
-                case 2:
-                    icon = "&#xf01e;";
-                    break;
-                case 3:
-                    icon = "&#xf01c;";
-                    break;
-                case 7:
-                    icon = "&#xf014;";
-                    break;
-                case 8:
-                    icon = "&#xf013;";
-                    break;
-                case 6:
-                    icon = "&#xf01b;";
-                    break;
-                case 5:
-                    icon = "&#xf019;";
-                    break;
-            }
-        }
-        return icon;
-    }
-
-
     public interface AsyncResponse {
 
-        void processFinish(String output1, String output2, String output3, String output4, String output5, String output6, String output7, String output8);
+        void processFinish(String output1, String output2, String output3);
     }
-
 
     public static class placeIdTask extends AsyncTask<String, Void, JSONObject> {
 
@@ -104,14 +67,8 @@ public class Function {
                     String city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                     String description = details.getString("description").toUpperCase(Locale.US);
                     String temperature = String.format("%.2f", main.getDouble("temp")) + "°";
-                    String humidity = main.getString("humidity") + "%";
-                    String pressure = main.getString("pressure") + " hPa";
-                    String updatedOn = df.format(new Date(json.getLong("dt") * 1000));
-                    String iconText = setWeatherIcon(details.getInt("id"),
-                            json.getJSONObject("sys").getLong("sunrise") * 1000,
-                            json.getJSONObject("sys").getLong("sunset") * 1000);
 
-                    delegate.processFinish(city, description, temperature, humidity, pressure, updatedOn, iconText, "" + (json.getJSONObject("sys").getLong("sunrise") * 1000));
+                    delegate.processFinish(city, description, temperature);
 
                 }
             } catch (JSONException e) {
