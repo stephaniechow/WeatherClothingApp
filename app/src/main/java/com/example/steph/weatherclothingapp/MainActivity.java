@@ -10,8 +10,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextView cityField, detailsField, currentTemperatureField;
 
-    Typeface weatherFont;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        asyncTask.execute("40.7128", "74.0060"); //  asyncTask.execute("Latitude", "Longitude")
+        asyncTask.execute("40.7128", "-74.0060"); //  asyncTask.execute("Latitude", "Longitude")
 
 
 

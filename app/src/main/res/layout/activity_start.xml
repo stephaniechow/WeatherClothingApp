@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F51B5"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Gender:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <RadioButton
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gender"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="Female"
+        android:onClick="setValues"/>
+
+    <RadioButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="Male"
+        android:onClick="setValues"/>
+
+    <TextView
+        android:id="@+id/Age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="Age:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Age"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="0-15"
+        android:onClick="setValues"/>
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton1"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="16-25"
+        android:onClick="setValues"/>
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton2"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="26-100"
+        android:onClick="setValues"/>
+
+    <TextView
+        android:id="@+id/Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="Style:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <RadioButton
+        android:id="@+id/styleButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Style"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="Casual"
+        android:onClick="setValues"/>
+
+    <RadioButton
+        android:id="@+id/styleButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/styleButton1"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="Business Casual"
+        android:onClick="setValues"/>
+
+    <RadioButton
+        android:id="@+id/styleButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/styleButton2"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="Business"
+        android:onClick="setValues" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/styleButton3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="What Should I Wear?"
+        android:onClick="submit"/>
+
+
+</RelativeLayout>
+
