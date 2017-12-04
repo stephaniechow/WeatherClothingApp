@@ -63,7 +63,9 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void submit(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent i = new Intent(this, Data.class);
+        startActivity(i);
     }
+
+
 }
