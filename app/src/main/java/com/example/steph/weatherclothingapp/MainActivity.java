@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private AppDatabase db;
     private double temp;
     private int tempResponse;
-    private String topResponse;
-    private String bottomResponse;
+    private int topResponse, bottomResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         detailsField = (TextView)findViewById(R.id.details_field);
         currentTemperatureField = (TextView)findViewById(R.id.current_temperature_field);
         topImage= (ImageView) findViewById(R.id.imageView1);
+        bottomImage= (ImageView) findViewById(R.id.imageView2);
 
         db = Data.db;
 
@@ -58,12 +58,20 @@ public class MainActivity extends AppCompatActivity {
             tempResponse = 3;
         }
 
-        topResponse = db.weatherDao().getTopsNeed(tempResponse, genderResponse, ageResponse, styleResponse);
-        bottomResponse = db.weatherDao().getBottomsNeed(tempResponse, genderResponse, ageResponse, styleResponse);
+        Runnable r2 = new Runnable() {
+            @Override
+            public void run() {
+                topResponse = db.weatherDao().getTopsNeed(tempResponse, genderResponse, ageResponse, styleResponse);
+                bottomResponse = db.weatherDao().getBottomsNeed(tempResponse, genderResponse, ageResponse, styleResponse);
 
-        int resID = getResources().getIdentifier(topResponse, "drawable", "package.name");
-        topImage.setImageResource(resID);
+                topImage.setImageResource(topResponse);
 
+                bottomImage.setImageResource(bottomResponse);
+            }
+        };
+
+        Thread t = new Thread(r2);
+        t.start();
 
     }
 }

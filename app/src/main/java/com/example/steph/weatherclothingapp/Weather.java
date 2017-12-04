@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 @Entity(tableName = "weathers")
 public class Weather {
+    public static int pk = 0;
     @PrimaryKey
     private int userID;
 
@@ -32,12 +33,13 @@ public class Weather {
     private int style;
 
     @ColumnInfo(name = "tops")
-    private String tops;
+    private int tops;
 
     @ColumnInfo(name = "bottoms")
-    private String bottoms;
+    private int bottoms;
 
-    public Weather(int temp, int age, int g, int s, String r, String t){
+    public Weather(int temp, int age, int g, int s, int r, int t){
+        userID = pk++;
         temperature = temp;
         ageSpan = age;
         gender = g;
@@ -88,19 +90,19 @@ public class Weather {
         return style;
     }
 
-    public void setTops(String r){
+    public void setTops(int r){
         tops = r;
     }
 
-    public String getTops(){
+    public int getTops(){
         return tops;
     }
 
-    public String getBottoms(){
+    public int getBottoms(){
         return bottoms;
     }
 
-    public void setBottoms(String r){
+    public void setBottoms(int r){
         bottoms = r;
      }
 

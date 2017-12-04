@@ -12,11 +12,11 @@ import java.util.ArrayList;
 
 @Dao
 public interface WeatherDao {
-    @Query("SELECT tops FROM weathers WHERE temperature LIKE :t AND genders LIKE :g AND ageSpans LIKE :a AND styles LIKE :s")
-    String getTopsNeed (int t, int g, int a, int s);
+    @Query("SELECT tops FROM weathers WHERE temperature = :t AND genders = :g AND ageSpans = :a AND styles = :s")
+    int getTopsNeed (int t, int g, int a, int s);
 
-    @Query("SELECT bottoms FROM weathers WHERE temperature LIKE :t AND genders LIKE :g AND ageSpans LIKE :a AND styles LIKE :s")
-    String getBottomsNeed (int t, int g, int a, int s);
+    @Query("SELECT bottoms FROM weathers WHERE temperature = :t AND genders = :g AND ageSpans = :a AND styles = :s")
+    int getBottomsNeed (int t, int g, int a, int s);
 
     @Insert
     void insertAll(ArrayList<Weather> w);

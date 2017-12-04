@@ -66,7 +66,7 @@ public class Function {
 
                     String city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                     String description = details.getString("description").toUpperCase(Locale.US);
-                    String temperature = String.format("%.2f", main.getDouble("temp")) + "°";
+                    String temperature = String.format("%.2f", main.getDouble("temp"));
 
                     delegate.processFinish(city, description, temperature);
 
