@@ -1,5 +1,6 @@
 package com.example.steph.weatherclothingapp;
 
+import android.arch.persistence.room.Room;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView cityField, detailsField, currentTemperatureField;
+    private Weather w;
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         cityField = (TextView)findViewById(R.id.city_field);
         detailsField = (TextView)findViewById(R.id.details_field);
         currentTemperatureField = (TextView)findViewById(R.id.current_temperature_field);
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "weathers").build();
+
+        db.weatherDao().insert(new Weather(1,1,1,1, ));
 
 
         Function.placeIdTask asyncTask =new Function.placeIdTask(new Function.AsyncResponse() {
