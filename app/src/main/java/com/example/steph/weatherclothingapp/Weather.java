@@ -3,6 +3,12 @@ package com.example.steph.weatherclothingapp;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.Room;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 /**
  * Created by jinjinwu on 2017/12/2.
@@ -39,6 +45,8 @@ public class Weather {
         tops= r;
         bottoms = t;
     }
+
+    public Weather(){}
 
     public void setUserID(int id){
         userID = id;
@@ -91,7 +99,9 @@ public class Weather {
     public String getBottoms(){
         return bottoms;
     }
-     public void setBottoms(String r){
+
+    public void setBottoms(String r){
         bottoms = r;
      }
+
 }
