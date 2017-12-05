@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
-    android:padding="20dp">
+    android:background="#37474F"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/gender"
@@ -13,28 +17,59 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="Gender:"
+        android:paddingBottom="10dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFFFFF" />
 
-    <RadioButton
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gender"
-        android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
-        android:text="Female"
-        android:onClick="setValues"/>
 
-    <RadioButton
-        android:id="@+id/button2"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/femenine" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/masculine" />
+
+    </LinearLayout>
+
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
-        android:text="Male"
-        android:onClick="setValues"/>
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gender"
+            android:layout_centerHorizontal="true"
+            android:paddingRight="20dp"
+            android:onClick="setValues"
+            android:text="Female"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/button2"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true"
+            android:onClick="setValues"
+            android:text="Male"
+            android:textColor="#FFFFFF" />
+    </RadioGroup>
+
+
 
     <TextView
         android:id="@+id/Age"
@@ -120,14 +155,16 @@
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/styleButton3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="What Should I Wear?"
+        android:text="Dress me up!"
+        android:padding="8dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
         android:onClick="submit"/>
 
 
-</RelativeLayout>
+</LinearLayout>
 
